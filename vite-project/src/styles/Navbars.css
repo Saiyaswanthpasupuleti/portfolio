@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center items horizontally */
+    align-items: center;
     overflow: hidden;
   }
   
@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     width: 100%;
     position: absolute;
     top: 0;
@@ -21,7 +21,7 @@
   }
   
   .logo-text {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -36,15 +36,14 @@
   .menu.open {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     position: absolute;
-    top: 70px;
-    right: 20px;
+    top: 60px;
+    right: 15px;
     background-color: black;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     border-radius: 8px;
-    transform: scale(1);
-    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
   
   .navbar-item {
@@ -60,10 +59,11 @@
   
   .menu-toggle {
     display: none;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: white;
     background: none;
     border: none;
+    cursor: pointer;
   }
   
   @media (max-width: 768px) {
@@ -83,17 +83,16 @@
   .hero {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Center content vertically and horizontally */
+    align-items: center;
     text-align: center;
-    height: 100%;
-    padding: 2rem;
+    padding: 2rem 1rem;
+    width: 100%;
   }
   
   .hero-text h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.5;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
   }
   
   .hero-text span {
@@ -106,21 +105,16 @@
     font-weight: bold;
   }
   
-  .hero .hero-text h1 span.highlight {
-    font-weight: normal; /* Optional to remove bold */
-  }
-  
-  /* Buttons styling */
   .hero-text div {
     display: flex;
-    gap: 2rem; /* Add space between buttons */
+    gap: 1rem;
     margin-top: 1rem;
-    justify-content: center; /* Center the buttons */
-    width: 100%; /* Ensure full width for centering */
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
   button {
-    background-color: black; /* Set button background color to black */
+    background-color: black;
     color: white;
     border: none;
     padding: 0.6rem 1.2rem;
@@ -131,14 +125,14 @@
   }
   
   button:hover {
-    background-color: #333; /* Darken the button color on hover */
+    background-color: #333;
   }
   
   .hero-image img {
-    max-width: 300px;
+    max-width: 80%;
     border-radius: 50%;
     border: 2px solid whitesmoke;
-    margin-top: 2rem;
+    margin-top: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   }
   
@@ -146,10 +140,12 @@
     .hero {
       flex-direction: row;
       text-align: left;
+      padding: 2rem;
     }
   
     .hero-text {
       max-width: 50%;
+      text-align: left;
     }
   
     .hero-image {
@@ -158,29 +154,31 @@
     }
   
     .hero-text h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
   }
   
   @media (max-width: 480px) {
     .hero-text h1 {
-      font-size: 1.5rem; /* Decrease font size for mobile screens */
+      font-size: 1.5rem;
     }
   
-    /* Center buttons vertically on mobile */
     .hero-text div {
-      flex-direction: column; /* Stack buttons vertically */
-      align-items: center; /* Center buttons horizontally */
+      flex-direction: column;
+      align-items: center;
     }
-  }
   
-  .resume-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
+    .hero-image img {
+      max-width: 90%;
+    }
   
-  .resume-link h2 {
-    margin-right: 10px; /* Adjust spacing between text and button */
+    .navbar {
+      padding: 1rem;
+    }
+  
+    .menu.open {
+      width: calc(100% - 2rem);
+      right: 1rem;
+    }
   }
   
