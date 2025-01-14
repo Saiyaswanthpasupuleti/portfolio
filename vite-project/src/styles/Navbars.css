@@ -1,0 +1,186 @@
+.navigation-bar {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center items horizontally */
+    overflow: hidden;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu.open {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: black;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    transform: scale(1);
+    z-index: 10;
+  }
+  
+  .navbar-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+  }
+  
+  .navbar-item:hover {
+    color: #00aaff;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+  }
+  
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+    }
+  
+    .menu.open {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  }
+  
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center content vertically and horizontally */
+    text-align: center;
+    height: 100%;
+    padding: 2rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem; 
+  }
+  
+  .hero-text span {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-text .highlight {
+    color: rgb(201, 180, 64);
+    font-weight: bold;
+  }
+  
+  .hero .hero-text h1 span.highlight {
+    font-weight: normal; /* Optional to remove bold */
+  }
+  
+  /* Buttons styling */
+  .hero-text div {
+    display: flex;
+    gap: 2rem; /* Add space between buttons */
+    margin-top: 1rem;
+    justify-content: center; /* Center the buttons */
+    width: 100%; /* Ensure full width for centering */
+  }
+  
+  button {
+    background-color: black; /* Set button background color to black */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #333; /* Darken the button color on hover */
+  }
+  
+  .hero-image img {
+    max-width: 300px;
+    border-radius: 50%;
+    border: 2px solid whitesmoke;
+    margin-top: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (min-width: 768px) {
+    .hero {
+      flex-direction: row;
+      text-align: left;
+    }
+  
+    .hero-text {
+      max-width: 50%;
+    }
+  
+    .hero-image {
+      max-width: 50%;
+      margin-left: 2rem;
+    }
+  
+    .hero-text h1 {
+      font-size: 3rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-text h1 {
+      font-size: 1.5rem; /* Decrease font size for mobile screens */
+    }
+  
+    /* Center buttons vertically on mobile */
+    .hero-text div {
+      flex-direction: column; /* Stack buttons vertically */
+      align-items: center; /* Center buttons horizontally */
+    }
+  }
+  
+  .resume-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .resume-link h2 {
+    margin-right: 10px; /* Adjust spacing between text and button */
+  }
+  
