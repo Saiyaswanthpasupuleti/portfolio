@@ -180,6 +180,9 @@
   .hero-text h1 {
     font-size: 1.5rem;
   }
+  .hero{
+    margin-top: 70px;
+  }
 
   .hero-text div {
     flex-direction: column;
