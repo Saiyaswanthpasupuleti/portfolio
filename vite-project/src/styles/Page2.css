@@ -1,0 +1,140 @@
+/* General Page Styling */
+.skills-page {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    background-color: #000; /* Change background color to black */
+    min-height: 100vh;
+    color: white;
+    opacity: 0; /* Start with opacity 0 for fade-in effect */
+  }
+  
+  /* Header Section */
+  .skills-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .skills-heading {
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 1rem; /* Add space for underline */
+  }
+  
+  .skills-heading::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: white;
+    margin: 0.5rem auto;
+    border-radius: 10px;
+  }
+  
+  /* Skills Container */
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns for larger screens */
+    gap: 2rem; /* Equal space between items */
+    justify-items: center;
+    padding: 1rem;
+    opacity: 0; /* Fade-in effect */
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  /* Skill Category */
+  .skill-category {
+    width: 100%;
+    text-align: center;
+    background-color: #1f1f1f;
+    padding: 1.5rem; /* Increased padding for more balanced look */
+    border-radius: 10px;
+    margin-bottom: 2rem; /* Increased space between skill categories */
+  }
+  
+  /* Skill Category Heading */
+  .skill-category h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Skill Item */
+  .skill-item {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .skill-item .skill-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  /* Responsive Layout */
+  @media (max-width: 1024px) {
+    .skills-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .skills-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+  
+    .skill-item {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .skills-container {
+      grid-template-columns: 1fr; /* 1 column for mobile screens */
+    }
+  
+    .skill-item {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Animation Effect */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Skill Category Heading */
+.skill-category h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    position: relative; /* To position the underline */
+    padding-bottom: 0.5rem; /* Space for the underline */
+  }
+  
+  /* Underline for Skill Category Heading */
+  .skill-category h3::after {
+    content: "";
+    display: block;
+    width: 60px; /* Adjust width of the underline */
+    height: 3px; /* Adjust thickness of the underline */
+    background-color: #fff;
+    margin: 0.5rem auto;
+    border-radius: 10px;
+  }
+  

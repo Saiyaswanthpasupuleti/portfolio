@@ -1,5 +1,6 @@
 
 import NavigationBar from './Component/NavigationBar'
+import Page2 from './Component/Page2'
 function App() {
   
 
@@ -7,6 +8,7 @@ function App() {
     <>
        {/* <Button>Click me</Button> */}
       <NavigationBar/>
+      <Page2/>
     </>
   )
 }
