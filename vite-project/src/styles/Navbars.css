@@ -130,7 +130,7 @@
 }
 
 .resume-link:hover {
-  color: #00aaff; /* Change color on hover */
+  color:  rgb(201, 180, 64); /* Change color on hover */
 }
 
 .resume-icon {
