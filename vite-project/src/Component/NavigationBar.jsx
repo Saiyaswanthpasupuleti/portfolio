@@ -4,9 +4,8 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import image from "../assets/IMG_9470.png";
 import "../styles/Navbars.css";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react"; // Ensure the correct import for the icon
+import { ChevronRight } from "lucide-react";
 
-// Register GSAP plugin
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function NavigationBar() {
@@ -14,13 +13,11 @@ export default function NavigationBar() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Smooth scroll to section using GSAP
   const scrollToSection = (sectionId) => {
     gsap.to(window, { duration: 1, scrollTo: sectionId, ease: "power2.inOut" });
-    setIsMenuOpen(false); // Close menu after click (for mobile)
+    setIsMenuOpen(false);
   };
 
-  // Animations for elements on page load
   const animatePage = () => {
     gsap.fromTo(
       ".hero-text span",
@@ -40,7 +37,6 @@ export default function NavigationBar() {
       { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" }
     );
 
-    // Add animation for Resume Button
     gsap.fromTo(
       ".resume-link",
       { opacity: 0, y: 30 },
@@ -55,10 +51,14 @@ export default function NavigationBar() {
   return (
     <div className="navigation-bar">
       {/* Navigation Bar */}
+      
       <div className="navbar">
         <div className="logo">
           <a href="/" className="logo-text">Portfolio</a>
         </div>
+        <button className="menu-toggle" onClick={toggleMenu}>
+          <span>{isMenuOpen ? "×" : "☰"}</span>
+        </button>
         <div className={`menu ${isMenuOpen ? "open" : ""}`}>
           {["home", "about", "projects", "blog", "contact"].map((item) => (
             <a
@@ -71,9 +71,6 @@ export default function NavigationBar() {
             </a>
           ))}
         </div>
-        <button className="menu-toggle" onClick={toggleMenu}>
-          <span>{isMenuOpen ? "×" : "☰"}</span>
-        </button>
       </div>
 
       {/* Hero Section */}
@@ -91,7 +88,6 @@ export default function NavigationBar() {
             </span>
           </h1>
           <div className="hero-buttons">
-            {/* Wrap the button with an anchor tag to link to the Resume */}
             <a
               href="https://drive.google.com/file/d/1eYWz5qYAxIRoJdA3EszzBdNJGbQoOLb4/view?usp=sharing"
               target="_blank"
@@ -99,9 +95,7 @@ export default function NavigationBar() {
               className="resume-link"
             >
               <h2>Resume</h2>
-              <Button variant="Ghost" size="icon">
-                <ChevronRight />
-              </Button>
+              <ChevronRight className="resume-icon" />
             </a>
           </div>
         </div>
