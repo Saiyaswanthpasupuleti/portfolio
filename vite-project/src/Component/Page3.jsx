@@ -10,6 +10,7 @@ import five from "../assets/Screenshot 2025-01-16 at 10.37.24 AM.png";
 import six from "../assets/Screenshot 2025-01-16 at 10.38.44 AM.png";
 import seven from "../assets/Screenshot 2025-01-16 at 10.38.51 AM.png";
 import eight from "../assets/Screenshot 2025-01-16 at 10.39.04 AM.png";
+import nine from "../assets/crop.jpeg"
 
 export default function Page3() {
   const [currentIndexes, setCurrentIndexes] = useState([]); // Array to track current image index for each card
@@ -126,10 +127,7 @@ export default function Page3() {
       description:
         "Developed a web-based solution to help farmers monitor crop yield seasonality using real-time data.",
       link: "#",
-      images: [
-        "https://via.placeholder.com/280x150/2C3E50/FFFFFF?text=Crop+Yield+1",
-        "https://via.placeholder.com/280x150/BDC3C7/FFFFFF?text=Crop+Yield+2",
-      ],
+      images: [nine]
     },
   ];
 
