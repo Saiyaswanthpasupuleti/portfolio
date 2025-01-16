@@ -12,24 +12,33 @@ import seven from "../assets/Screenshot 2025-01-16 at 10.38.51 AM.png";
 import eight from "../assets/Screenshot 2025-01-16 at 10.39.04 AM.png";
 
 export default function Page3() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndexes, setCurrentIndexes] = useState([]); // Array to track current image index for each card
   const [hasAnimated, setHasAnimated] = useState(false); // State to track animation
   const [isPageReady, setIsPageReady] = useState(false); // State to track page readiness
 
   const handlePrev = (index) => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? projects[index].images.length - 1 : prevIndex - 1
-    );
+    setCurrentIndexes((prevIndexes) => {
+      const newIndexes = [...prevIndexes];
+      newIndexes[index] =
+        newIndexes[index] === 0 ? projects[index].images.length - 1 : newIndexes[index] - 1;
+      return newIndexes;
+    });
   };
 
   const handleNext = (index) => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === projects[index].images.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndexes((prevIndexes) => {
+      const newIndexes = [...prevIndexes];
+      newIndexes[index] =
+        newIndexes[index] === projects[index].images.length - 1 ? 0 : newIndexes[index] + 1;
+      return newIndexes;
+    });
   };
 
   useEffect(() => {
     if (!hasAnimated) {
+      // Initialize currentIndexes state with zeros for all projects
+      setCurrentIndexes(projects.map(() => 0));
+
       // GSAP animation for initial fade-in of project names and descriptions
       gsap.fromTo(
         ".skill-category",
@@ -90,43 +99,27 @@ export default function Page3() {
       description:
         "Created a Crickbuzz clone using React.js to provide live match details.",
       link: "https://crickbuzz-clone-delta.vercel.app/home",
-      images: [
-        one, // Correctly use the imported image here
-        two,
-        three
-      ],
+      images: [one, two, three],
     },
     {
       name: "Calculator App",
       description: "Built a fully functional calculator using JavaScript.",
       link: "https://saiyaswanthpasupuleti.github.io/10ktasks/calculator/cal.html",
-      images: [
-        four,
-        four,
-        four
-      ],
+      images: [four],
     },
     {
       name: "Weather Forecasting App",
       description:
         "Created a weather forecasting app that fetches real-time weather data from an API.",
       link: "https://saiyaswanthpasupuleti.github.io/10ktasks/weatherApp/weather.html",
-      images: [
-        five,
-        five,
-        five
-      ],
+      images: [five],
     },
     {
       name: "Car Rental Application",
       description:
         "Developed a car rental platform that allows users to browse and book vehicles.",
       link: "https://saiyaswanthpasupuleti.github.io/10ktasks/Car_Rental_App_Demo/index.html",
-      images: [
-        six,
-        seven,
-        eight
-      ],
+      images: [six, seven, eight],
     },
     {
       name: "Crop Yield Seasonality Measurement",
@@ -159,8 +152,8 @@ export default function Page3() {
                 &lt;
               </button>
               <img
-                src={project.images[currentIndex]}
-                alt={`Slide ${currentIndex}`}
+                src={project.images[currentIndexes[index]]}
+                alt={`Slide ${currentIndexes[index]}`}
                 className="slider-image"
               />
               <button className="next" onClick={() => handleNext(index)}>
