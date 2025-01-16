@@ -1,172 +1,207 @@
-
-/* Base Styles */
+/* General Page Styling */
 .skills-page {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "Roboto", sans-serif;
-    background-color: #f4f4f4;
-    min-height: 100vh;
-    color: #333;
-  }
-  
-  /* Header Styles */
-  .skills-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .skills-heading {
-    font-size: 3rem;
-    color: #0078d7;
-    text-transform: uppercase;
-    font-weight: bold;
-    position: relative;
-    padding-bottom: 1rem;
-    animation: headingAnimation 1.5s ease-out;
-  }
-  
-  .skills-heading::after {
-    content: "";
-    display: block;
-    width: 100px;
-    height: 4px;
-    background: #0078d7;
-    margin: 0.5rem auto;
-    border-radius: 5px;
-  }
-  
-  /* Heading animation */
-  @keyframes headingAnimation {
-    0% {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  background-color: #000; /* Change background color to black */
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+  opacity: 0; /* Start with opacity 0 for fade-in effect */
+}
+
+/* Header Section */
+.skills-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.skills-heading {
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 1rem;
+  animation: headingAnimation 1.5s ease-out; /* Heading animation */
+}
+
+.skills-heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: white;
+  margin: 0.5rem auto;
+  border-radius: 10px;
+}
+
+/* Heading Animation */
+@keyframes headingAnimation {
+  0% {
       opacity: 0;
       transform: translateY(-50px);
-    }
-    100% {
+  }
+  100% {
       opacity: 1;
       transform: translateY(0);
-    }
   }
-  
-  /* Container Styles */
-  .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the cards horizontally */
-    align-items: center; /* Align the cards at the top */
-    gap: 2rem;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-bottom: 2rem;
-  }
-  
-  /* Project Card Styles */
-  .skill-category {
-    position: relative;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 280px; /* Fixed width */
-    height: 350px; /* Fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; /* Start as invisible for GSAP animation */
-    transform: translateY(50px); /* Initial position for GSAP */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .skill-category:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Card Content */
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the content */
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  .card-content h3 {
-    margin: 0;
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-  }
-  
-  .skill-item {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.5;
-    text-align: center;
-  }
-  
-  /* Media Queries */
-  @media (max-width: 1024px) {
-    .skills-heading {
+}
+
+/* Skills Container */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px; /* Adjust max width for better centering */
+  margin: 0 auto;
+  opacity: 0; /* Fade-in effect */
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Skill Category */
+.skill-category {
+  position: relative;
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 280px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.skill-category:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Content */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.card-content h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #fff;
+  margin: 0.5rem auto;
+  border-radius: 10px;
+}
+
+.card-content h3:hover::after {
+  width: 100px;
+  transition: width 0.3s ease-in-out;
+}
+
+.skill-item {
+  font-size: 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-item .skill-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.2);
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .skills-heading {
       font-size: 2.5rem;
-    }
-  
-    .skills-container {
-      gap: 1.5rem;
-    }
-  
-    .skill-category {
-      width: 240px; /* Adjust width on medium screens */
-    }
-  
-    .card-content h3 {
-      font-size: 1.5rem;
-    }
   }
-  
-  @media (max-width: 768px) {
-    .skills-container {
+
+  .skills-container {
+      gap: 1.5rem;
+  }
+
+  .skill-category {
+      width: 240px;
+  }
+
+  .card-content h3 {
+      font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-container {
       flex-direction: column;
       gap: 2rem;
       padding: 1rem;
-    }
-  
-    .skill-category {
-      width: 100%; /* Full width on smaller screens */
+  }
+
+  .skill-category {
+      width: 100%;
       max-width: 400px;
       padding: 1.5rem;
-    }
-  
-    .skills-heading {
+  }
+
+  .skills-heading {
       font-size: 2rem;
-    }
-  
-    .card-content h3 {
+  }
+
+  .card-content h3 {
       font-size: 1.4rem;
-    }
-  
-    .skill-item {
-      font-size: 1rem; /* Smaller font size on small screens */
-    }
   }
-  
-  @media (max-width: 480px) {
-    .skills-heading {
+
+  .skill-item {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-heading {
       font-size: 1.8rem;
-    }
-  
-    .card-content h3 {
-      font-size: 1.3rem;
-    }
-  
-    .skill-item {
-      font-size: 0.9rem; /* Further adjust text size on very small screens */
-    }
-    
   }
-  
+
+  .card-content h3 {
+      font-size: 1.3rem;
+  }
+
+  .skill-item {
+      font-size: 0.9rem;
+  }
+}
+
+/* Animation Effect */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

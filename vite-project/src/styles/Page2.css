@@ -42,10 +42,14 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns for larger screens */
   gap: 2rem; /* Equal space between items */
-  justify-items: center;
+  justify-items: center; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
   padding: 1rem;
   opacity: 0; /* Fade-in effect */
   animation: fadeIn 1s ease-in-out forwards;
+  width: 100%; /* Ensures the container takes the full width */
+  max-width: 1200px; /* Limits the maximum width for large screens */
+  margin: 0 auto; /* Centers the container horizontally */
 }
 
 /* Skill Category */
@@ -138,42 +142,12 @@
   border-radius: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .skill-item:hover .skill-icon {
   transform: scale(1.2); 
   transition: transform 0.3s ease-in-out;
 }
-/* 
-.skill-category:hover {
-  background-color: #2d2d2d; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out; 
-} */
-
 
 .skill-category h3:hover::after {
   width: 100px;
   transition: width 0.3s ease-in-out; 
 }
-
-
-/* .skill-category h3:hover {
-  color:  rgb(201, 180, 64);
-  transition: color 0.3s ease-in-out;
-} */
-
-/* 
-.skill-category:hover h3 {
-  color:  rgb(201, 180, 64);
-} */

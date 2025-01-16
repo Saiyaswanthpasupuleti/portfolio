@@ -6,9 +6,9 @@
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  background-color: #f4f4f4;
+  background-color: #000; /* Black background */
   min-height: 100vh;
-  color: #333;
+  color: #fff;
 }
 
 /* Header Styles */
@@ -22,7 +22,6 @@
   color: #0078d7;
   text-transform: uppercase;
   font-weight: bold;
-  position: relative;
   padding-bottom: 1rem;
   animation: headingAnimation 1.5s ease-out;
 }
@@ -37,7 +36,7 @@
   border-radius: 5px;
 }
 
-/* Heading animation */
+/* Heading Animation */
 @keyframes headingAnimation {
   0% {
     opacity: 0;
@@ -52,90 +51,118 @@
 /* Container Styles */
 .skills-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap; /* Single row */
+  overflow-x: auto; /* Enable horizontal scroll for small screens */
+  padding: 1rem;
+  scrollbar-width: thin;
+}
+
+.skills-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.skills-container::-webkit-scrollbar-thumb {
+  background-color: #0078d7;
+  border-radius: 4px;
 }
 
 /* Project Card Styles */
 .skill-category {
   position: relative;
-  background-color: #fff;
+  background-color: #222;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   padding: 2rem;
   width: 280px;
-  height: 350px;
+  height: 400px; /* Increased height for images */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; /* Align items to center */
-  opacity: 0; /* Start as invisible for GSAP animation */
-  transform: translateY(50px); /* Initial position for GSAP */
+  opacity: 0;
+  transform: translateY(50px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-category:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* Card Content */
 .card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the content */
-  gap: 1rem;
+  text-align: center;
 }
 
 .card-content h3 {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
-  text-align: center;
+  color: #fff;
 }
 
 .skill-item {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.5;
-  text-align: center;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Image Slider */
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 150px; /* Set height of image container */
+  overflow: hidden;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
 }
 
 /* Hover Content */
 .hover-content {
-  display: flex; /* Display as flex container */
-  justify-content: center;
-  align-items: flex-end; /* Align button at the bottom */
   position: absolute;
-  bottom: 20px;
+  bottom: 1rem;
   left: 0;
   right: 0;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-  border-radius: 10px;
-  opacity: 0; /* Initially hidden */
-  pointer-events: none; /* Prevent hover interactions initially */
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 .skill-category:hover .hover-content {
-  opacity: 1; /* Show hover content on hover */
-  pointer-events: auto; /* Enable interactions */
-}
-
-.hover-content .button {
-  margin-top: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 button {
   font-size: 1rem;
   color: #fff;
-  background-color: #0078d7;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -147,22 +174,3 @@ button:hover {
   background-color: #005bb5;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .skills-container {
-    padding: 1rem;
-  }
-
-  .skill-category {
-    padding: 1rem;
-    width: 100%; /* Full width on smaller screens */
-  }
-
-  .skills-heading {
-    font-size: 2.5rem;
-  }
-
-  .card-content h3 {
-    font-size: 1.5rem;
-  }
-}

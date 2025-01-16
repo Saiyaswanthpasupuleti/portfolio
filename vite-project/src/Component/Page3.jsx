@@ -1,102 +1,150 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { gsap } from "gsap"; // Importing GSAP
-import "../styles/Page2.css"; // Reuse the existing styles
+import "../styles/Page3.css"; // Updated styles for Page3
 import { Button } from "@/components/ui/button";
+import one from "../assets/one.png"; // Correctly importing the image
+import two from "../assets/Screenshot 2025-01-16 at 10.27.47 AM.png"; // Correctly importing the image
+import three from "../assets/Screenshot 2025-01-16 at 10.28.12 AM.png";
+import four from "../assets/Screenshot 2025-01-16 at 10.36.04 AM.png"; // Correctly importing the image
+import five from "../assets/Screenshot 2025-01-16 at 10.37.24 AM.png";
+import six from "../assets/Screenshot 2025-01-16 at 10.38.44 AM.png";
+import seven from "../assets/Screenshot 2025-01-16 at 10.38.51 AM.png";
+import eight from "../assets/Screenshot 2025-01-16 at 10.39.04 AM.png";
 
 export default function Page3() {
-  useEffect(() => {
-    // GSAP animation for initial fade-in of project names and descriptions
-    gsap.fromTo(
-      ".skill-category",
-      {
-        opacity: 0, // Start with hidden state
-        y: 50, // Start with a vertical offset
-      },
-      {
-        opacity: 1, // Fade to visible
-        y: 0, // Bring to normal position
-        stagger: 0.2, // Apply stagger to create a sequential animation
-        duration: 0.2, // Reduced duration of the animation
-        scrollTrigger: {
-          trigger: ".skills-page", // Trigger the animation on scroll
-          start: "top 80%", // When the page scrolls 80% down
-          end: "bottom top", // Ends when the bottom of the element reaches the top
-          scrub: true, // Makes the animation smooth during scroll
-        },
-      }
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false); // State to track animation
+  const [isPageReady, setIsPageReady] = useState(false); // State to track page readiness
+
+  const handlePrev = (index) => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? projects[index].images.length - 1 : prevIndex - 1
     );
+  };
 
-    // GSAP hover effect for showing the live demo button
-    const projectCards = document.querySelectorAll(".skill-category");
+  const handleNext = (index) => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === projects[index].images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
-    projectCards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card.querySelector(".hover-content"), {
-          opacity: 1, // Make hover content visible on hover
-          duration: 0.3, // Reduced duration
+  useEffect(() => {
+    if (!hasAnimated) {
+      // GSAP animation for initial fade-in of project names and descriptions
+      gsap.fromTo(
+        ".skill-category",
+        {
+          opacity: 1, // Start with opacity 0
+          y: 50,
+        },
+        {
+          opacity: 1, // Animate to opacity 1
+          y: 0,
+          stagger: 0.2,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".skills-page",
+            start: "top 80%",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+
+      // GSAP hover effects
+      const projectCards = document.querySelectorAll(".skill-category");
+
+      projectCards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          gsap.to(card.querySelector(".hover-content"), {
+            opacity: 1,
+            duration: 0.3,
+          });
+          gsap.to(card, {
+            scale: 1.05,
+            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+            duration: 0.2,
+          });
         });
-        gsap.to(card, {
-          scale: 1.05, // Slight zoom effect
-          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.15)", // Enhanced shadow effect
-          duration: 0.2, // Reduced duration
+        card.addEventListener("mouseleave", () => {
+          gsap.to(card.querySelector(".hover-content"), {
+            opacity: 0,
+            duration: 0.3,
+          });
+          gsap.to(card, {
+            scale: 1,
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+            duration: 0.2,
+          });
         });
       });
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card.querySelector(".hover-content"), {
-          opacity: 0, // Make hover content invisible when not hovered
-          duration: 0.3, // Reduced duration
-        });
-        gsap.to(card, {
-          scale: 1, // Return to normal size
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Original shadow
-          duration: 0.2, // Reduced duration
-        });
-      });
-    });
-  }, []);
 
-  // Array of projects
+      setHasAnimated(true); // Set animation flag to true after it runs once
+      setIsPageReady(true); // Page is ready for viewing
+    }
+  }, [hasAnimated]);
+
   const projects = [
     {
       name: "Crick Buzz Clone",
       description:
         "Created a Crickbuzz clone using React.js to provide live match details.",
       link: "https://crickbuzz-clone-delta.vercel.app/home",
+      images: [
+        one, // Correctly use the imported image here
+        two,
+        three
+      ],
     },
     {
       name: "Calculator App",
-      description:
-        "Built a fully functional calculator using JavaScript.",
+      description: "Built a fully functional calculator using JavaScript.",
       link: "https://saiyaswanthpasupuleti.github.io/10ktasks/calculator/cal.html",
+      images: [
+        four,
+        four,
+        four
+      ],
     },
     {
       name: "Weather Forecasting App",
       description:
         "Created a weather forecasting app that fetches real-time weather data from an API.",
       link: "https://saiyaswanthpasupuleti.github.io/10ktasks/weatherApp/weather.html",
+      images: [
+        five,
+        five,
+        five
+      ],
     },
     {
       name: "Car Rental Application",
       description:
         "Developed a car rental platform that allows users to browse and book vehicles.",
       link: "https://saiyaswanthpasupuleti.github.io/10ktasks/Car_Rental_App_Demo/index.html",
+      images: [
+        six,
+        seven,
+        eight
+      ],
     },
     {
       name: "Crop Yield Seasonality Measurement",
       description:
         "Developed a web-based solution to help farmers monitor crop yield seasonality using real-time data.",
-      link: "#", // Add the link here if applicable
+      link: "#",
+      images: [
+        "https://via.placeholder.com/280x150/2C3E50/FFFFFF?text=Crop+Yield+1",
+        "https://via.placeholder.com/280x150/BDC3C7/FFFFFF?text=Crop+Yield+2",
+      ],
     },
   ];
 
   return (
-    <div className="skills-page">
-      {/* Page Heading */}
+    <div className={`skills-page ${isPageReady ? "fade-in" : "hidden"}`}>
       <div className="skills-header">
         <h1 className="skills-heading">My Projects</h1>
       </div>
-
-      {/* Projects List */}
       <div className="skills-container">
         {projects.map((project, index) => (
           <div key={index} className="skill-category">
@@ -106,8 +154,24 @@ export default function Page3() {
                 <li className="skill-item">{project.description}</li>
               </ul>
             </div>
+            <div className="image-slider">
+              <button className="prev" onClick={() => handlePrev(index)}>
+                &lt;
+              </button>
+              <img
+                src={project.images[currentIndex]}
+                alt={`Slide ${currentIndex}`}
+                className="slider-image"
+              />
+              <button className="next" onClick={() => handleNext(index)}>
+                &gt;
+              </button>
+            </div>
             <div className="hover-content">
-              <Button variant="ghost" onClick={() => window.open(project.link, "_blank")}>
+              <Button
+                variant="ghost"
+                onClick={() => window.open(project.link, "_blank")}
+              >
                 View Live Project
               </Button>
             </div>

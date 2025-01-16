@@ -27,13 +27,24 @@ gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger plugin
 
 export default function Page2() {
   useEffect(() => {
+    // Initial page load fade-in effect
+    gsap.fromTo(
+      ".skills-page",
+      { opacity: 0 }, // Start with opacity 0
+      {
+        opacity: 1,
+        duration: 1.5, // Duration of the fade-in effect
+        ease: "power3.out", // Smooth easing
+      }
+    );
+
     // Scroll-triggered animation for skill categories
     gsap.fromTo(
       ".skills-page",
       { opacity: 1 },
       {
         opacity: 1,
-        duration: 1.5,
+        duration: 1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".skills-page",
@@ -204,7 +215,7 @@ export default function Page2() {
           </ul>
         </div>
 
-        <div className="skill-category">
+        {/* <div className="skill-category">
           <h3>Development Tools</h3>
           <ul>
             <li className="skill-item">
@@ -212,7 +223,7 @@ export default function Page2() {
               VS Code
             </li>
           </ul>
-        </div>
+        </div> */}
 
         <div className="skill-category">
           <h3>Deployment Tools</h3>

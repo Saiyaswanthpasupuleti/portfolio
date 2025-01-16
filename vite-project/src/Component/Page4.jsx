@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap"; // Import GSAP
-import "../styles/Page2.css"; // Reuse the provided styles
+import "../styles/Page4.css"; // Reuse the provided styles
 
 export default function Page4() {
   useEffect(() => {
