@@ -60,7 +60,7 @@ export default function NavigationBar() {
           <span>{isMenuOpen ? "×" : "☰"}</span>
         </button>
         <div className={`menu ${isMenuOpen ? "open" : ""}`}>
-          {["Home", "Skills", "projects", "Education", "contact"].map((item) => (
+          {["Home", "Skills", "Projects", "Education", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item}`}

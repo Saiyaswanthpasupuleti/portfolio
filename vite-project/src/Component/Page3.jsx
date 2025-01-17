@@ -132,7 +132,7 @@ export default function Page3() {
   ];
 
   return (
-    <div className={`skills-page ${isPageReady ? "fade-in" : "hidden"}`}>
+    <div className={`skills-page ${isPageReady ? "fade-in" : "hidden"}`} id="Projects">
       <div className="skills-header">
         <h1 className="skills-heading">My Projects</h1>
       </div>

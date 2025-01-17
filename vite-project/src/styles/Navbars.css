@@ -25,8 +25,13 @@
   font-weight: bold;
   color: white;
   text-decoration: none;
+  text-decoration: none; /* Ensures underline doesn't reappear on hover */
 }
+.logo-text:hover{
+  text-decoration: none;
+    color: rgb(201, 180, 64);
 
+}
 .menu {
   display: flex;
   gap: 2rem;
@@ -49,13 +54,14 @@
 
 .navbar-item {
   color: white;
-  text-decoration: none;
+  text-decoration: none; /* Removes underline */
   font-size: 1rem;
   transition: all 0.3s;
 }
 
 .navbar-item:hover {
-  color: #00aaff;
+  color: rgb(201, 180, 64);
+  text-decoration: none; /* Ensures underline doesn't reappear on hover */
 }
 
 .menu-toggle {
@@ -131,6 +137,7 @@
 
 .resume-link:hover {
   color:  rgb(201, 180, 64); /* Change color on hover */
+  text-decoration: none; /* Ensures underline doesn't reappear on hover */
 }
 
 .resume-icon {
@@ -188,4 +195,40 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+
+/* Add the following CSS to your Navbars.css file */
+
+/* Light Mode */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.navigation-bar {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navigation-bar.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.navigation-bar.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

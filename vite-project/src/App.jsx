@@ -9,7 +9,6 @@ function App() {
 
   return (
     <>
-       {/* <Button>Click me</Button> */}
       <NavigationBar/>
       <Page2/>
       <Page3/>

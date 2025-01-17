@@ -49,7 +49,7 @@ export default function Page4() {
   ];
 
   return (
-    <div className="skills-page">
+    <div className="skills-page" id="Education">
       {/* Page Heading */}
       <div className="skills-header">
         <h1 className="skills-heading">My Education</h1>

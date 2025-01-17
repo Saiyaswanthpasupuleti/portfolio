@@ -38,7 +38,7 @@ function Page5() {
   };
 
   return (
-    <div className="contact-page">
+    <div className="contact-page" id='Contact'>
       {/* Page Heading */}
       <div className="contact-header">
         <h1 className="contact-heading">Contact Us</h1>

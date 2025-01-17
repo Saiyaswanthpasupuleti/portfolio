@@ -2,21 +2,21 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger
 import "../styles/Page2.css";
-import htmlimage from "../assets/html.webp";
-import cssimage from "../assets/cssss.png";
-import jsimage from "../assets/js.png";
+import htmlimage from "../assets/html.png";
+import cssimage from "../assets/css.png";
+import jsimage from "../assets/javascript.png";
 import tsimage from "../assets/typescript.png";
 import nodeimage from "../assets/nodejs.png";
 import expressimage from "../assets/express-js.png";
 import reactnative from "../assets/react-native-1.svg";
-import bootstrap from "../assets/bootstrap.png";
+import bootstrap from "../assets/bootstrap copy.png";
 import shadcn from "../assets/shadcn.webp";
 import reactjs from "../assets/Reactjs.webp";
-import git from "../assets/git6963.jpg";
+import git from "../assets/git (1).png";
 import github from "../assets/github pages.png";
 import ec2 from "../assets/ec2.png";
 import iam from "../assets/IAM.webp";
-import mongo from "../assets/m0ngo.png";
+import mongo from "../assets/mongodb.png";
 import sql from "../assets/sql.png";
 import postman from "../assets/pstman.png";
 import vscode from "../assets/vs code.png";
@@ -91,7 +91,8 @@ export default function Page2() {
   }, []);
 
   return (
-    <div className="skills-page">
+    <div className="skills-page" id="Skills">
+    
       {/* Page Heading */}
       <div className="skills-header">
         <h1 className="skills-heading">Technical Skills</h1>
