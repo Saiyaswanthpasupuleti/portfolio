@@ -1,138 +1,131 @@
-
-/* CSS */
+/* General Styles */
 .contact-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: "Roboto", sans-serif;
-    background-color: #000; /* Black background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  background-color: #000; /* Black background */
+  min-height: 100vh;
+  padding: 2rem;
+}
 
-    min-height: 100vh;
-    padding: 2rem;
-  }
-  
-  /* Header Section */
-  .contact-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .contact-heading {
-    font-size: 2rem;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: bold;
-    position: relative;
-    padding-bottom: 1rem;
-    animation: headingAnimation 1.5s ease-out; /* Heading animation */
-  }
-  
-  .contact-heading::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: white;
-    margin: 0.5rem auto;
-    border-radius: 10px;
-  }
-  
-  @keyframes headingAnimation {
-    0% {
+/* Header Section */
+.contact-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-heading {
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 1rem;
+  animation: headingAnimation 1.5s ease-out; /* Heading animation */
+}
+
+.contact-heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: white;
+  margin: 0.5rem auto;
+  border-radius: 10px;
+}
+
+@keyframes headingAnimation {
+  0% {
       opacity: 0;
       transform: translateY(-50px);
-    }
-    100% {
+  }
+  100% {
       opacity: 1;
       transform: translateY(0);
-    }
   }
-  
-  /* Contact Form */
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  background-color: #1f1f1f;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #2a2a2a;
+}
+
+textarea {
+  height: 100px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+button {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contact-heading {
+      font-size: 1.8rem;
+  }
+
   .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 500px;
-    background-color: #1f1f1f;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
   }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    color: #fff;
-  }
-  
+
   input,
   textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #2a2a2a;
-   
+      font-size: 0.9rem;
   }
-  
-  textarea {
-    height: 100px;
-  }
-  
-  .checkbox-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: #fff;
-  }
-  
-  button {
-   
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
 
-  
-  a {
-    
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  @media (max-width: 768px) {
-    .contact-heading {
-      font-size: 1.8rem;
-    }
-  
-    .contact-form {
-      padding: 1.5rem;
-    }
-  
-    input,
-    textarea {
+  button {
       font-size: 0.9rem;
-    }
-  
-    button {
-      font-size: 0.9rem;
-    }
   }
-  
+}
