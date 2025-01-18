@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Page5.css'; // Import your existing CSS styles
 import { Toaster, toast } from 'sonner'; // Import the correct API for toaster notifications
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 
 function Page5() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,9 @@ function Page5() {
     message: '',
   });
 
+  const [isSending, setIsSending] = useState(false); // State for tracking email sending progress
+  const [progressValue, setProgressValue] = useState(0); // State for progress bar value
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -17,6 +21,19 @@ function Page5() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsSending(true);
+    setProgressValue(0); // Reset progress
+
+    // Simulate dynamic progress
+    const interval = setInterval(() => {
+      setProgressValue((prev) => {
+        if (prev >= 80) {
+          clearInterval(interval);
+          return 80; // Stop at 80% while waiting for the API response
+        }
+        return prev + 10;
+      });
+    }, 500);
 
     try {
       const response = await fetch('https://portfolio-1-btiu.onrender.com/send-email', {
@@ -30,12 +47,17 @@ function Page5() {
       if (result.success) {
         toast.success('Email sent successfully!');
         setFormData({ name: '', email: '', message: '' });
+        setProgressValue(100); // Complete the progress bar
       } else {
         toast.error('Failed to send email. Please try again later.');
+        setProgressValue(0); // Reset progress
       }
     } catch (error) {
       console.error('Error:', error);
       toast.error('An error occurred. Please try again later.');
+      setProgressValue(0); // Reset progress
+    } finally {
+      setTimeout(() => setIsSending(false), 500); // Hide progress bar after a short delay
     }
   };
 
@@ -60,7 +82,7 @@ function Page5() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label> {/* Corrected typo here */}
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -78,8 +100,17 @@ function Page5() {
             required
           />
         </div>
-        <Button type="submit" variant="ghost">Send Mail</Button> {/* Ensured it's a submit button */}
+        <Button type="submit" variant="ghost" disabled={isSending}>
+          {isSending ? 'Sending...' : 'Send Mail'}
+        </Button>
       </form>
+
+      {/* Progress Bar */}
+      {isSending && (
+        <div className="progress-bar">
+          <Progress value={progressValue} />
+        </div>
+      )}
 
       {/* Toaster for notifications */}
       <Toaster />

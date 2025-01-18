@@ -132,3 +132,11 @@ a:hover {
       font-size: 0.9rem;
   }
 }
+
+.progress-bar {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  
+}
+
