@@ -58,7 +58,7 @@ function Page5() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Emails:</label>
           <input
             type="email"
             id="email"
