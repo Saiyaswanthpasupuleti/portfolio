@@ -47,6 +47,9 @@
   }
 }
 
+.form-group{
+  color: white;
+}
 /* Contact Form */
 .contact-form {
   display: flex;

@@ -60,6 +60,7 @@ export default function Page3() {
           },
         }
       );
+      
 
       // GSAP hover effects
       const projectCards = document.querySelectorAll(".skill-category");

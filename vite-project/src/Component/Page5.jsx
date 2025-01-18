@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import '../styles/Page5.css'; // Import a CSS file for styling
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-
+import '../styles/Page5.css'; // Import your existing CSS styles
+import { Button } from "@/components/ui/button"
 function Page5() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,19 +19,15 @@ function Page5() {
     try {
       const response = await fetch('http://localhost:5000/send-email', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, message }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (data.success) {
+      if (result.success) {
         alert('Email sent successfully!');
-        setName('');
-        setEmail('');
-        setMessage('');
+        setFormData({ name: '', email: '', message: '' });
       } else {
         alert('Failed to send email. Please try again later.');
       }
@@ -38,7 +38,7 @@ function Page5() {
   };
 
   return (
-    <div className="contact-page" id='Contact'>
+    <div className="contact-page" id="Contact">
       {/* Page Heading */}
       <div className="contact-header">
         <h1 className="contact-heading">Contact Us</h1>
@@ -49,34 +49,36 @@ function Page5() {
       <form onSubmit={handleSubmit} className="contact-form">
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <Input
+          <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={formData.name}
+            onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
-          <Input
+          <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="message">Message:</label>
-          <Textarea
+          <textarea
             id="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            value={formData.message}
+            onChange={handleChange}
             required
           />
         </div>
-        <Button type="submit" variant="ghost">Send Mail</Button>
+        {/* <button type="submit">Send Mail</button> */}
+        <Button variant="ghost">Send Mail</Button>
+
       </form>
     </div>
   );

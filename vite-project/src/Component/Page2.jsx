@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger
+import { GiSkills } from "react-icons/gi";
 import "../styles/Page2.css";
 import htmlimage from "../assets/html.png";
 import cssimage from "../assets/css.png";
@@ -27,13 +28,13 @@ gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger plugin
 
 export default function Page2() {
   useEffect(() => {
-    // Initial page load fade-in effect
+    // Initial page load fade-in effect (no flash effect)
     gsap.fromTo(
       ".skills-page",
       { opacity: 0 }, // Start with opacity 0
       {
-        opacity: 1,
-        duration: 1.5, // Duration of the fade-in effect
+        opacity: 30,
+        duration: 2, // Duration of the fade-in effect
         ease: "power3.out", // Smooth easing
       }
     );
@@ -92,9 +93,8 @@ export default function Page2() {
 
   return (
     <div className="skills-page" id="Skills">
-    
       {/* Page Heading */}
-      <div className="skills-header">
+      <div className="skills-header" style={{ display: "flex" }}>
         <h1 className="skills-heading">Technical Skills</h1>
       </div>
 
@@ -215,16 +215,6 @@ export default function Page2() {
             </li>
           </ul>
         </div>
-
-        {/* <div className="skill-category">
-          <h3>Development Tools</h3>
-          <ul>
-            <li className="skill-item">
-              <img src={vscode} alt="VS Code" className="skill-icon" />
-              VS Code
-            </li>
-          </ul>
-        </div> */}
 
         <div className="skill-category">
           <h3>Deployment Tools</h3>
