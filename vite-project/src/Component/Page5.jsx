@@ -17,7 +17,7 @@ function Page5() {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('http://localhost:3600/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
