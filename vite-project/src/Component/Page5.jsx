@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/Page5.css'; // Import your existing CSS styles
-import { Button } from "@/components/ui/button"
+import { Toaster, toast } from 'sonner'; // Import the correct API for toaster notifications
+import { Button } from "@/components/ui/button";
+
 function Page5() {
   const [formData, setFormData] = useState({
     name: '',
@@ -26,14 +28,14 @@ function Page5() {
       const result = await response.json();
 
       if (result.success) {
-        alert('Email sent successfully!');
+        toast.success('Email sent successfully!');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        alert('Failed to send email. Please try again later.');
+        toast.error('Failed to send email. Please try again later.');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred. Please try again later.');
+      toast.error('An error occurred. Please try again later.');
     }
   };
 
@@ -58,7 +60,7 @@ function Page5() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Emails:</label>
+          <label htmlFor="email">Email:</label> {/* Corrected typo here */}
           <input
             type="email"
             id="email"
@@ -76,10 +78,11 @@ function Page5() {
             required
           />
         </div>
-        {/* <button type="submit">Send Mail</button> */}
-        <Button variant="ghost">Send Mail</Button>
-
+        <Button type="submit" variant="ghost">Send Mail</Button> {/* Ensured it's a submit button */}
       </form>
+
+      {/* Toaster for notifications */}
+      <Toaster />
     </div>
   );
 }
