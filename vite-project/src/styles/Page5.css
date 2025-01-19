@@ -47,9 +47,10 @@
   }
 }
 
-.form-group{
+.form-group {
   color: white;
 }
+
 /* Contact Form */
 .contact-form {
   display: flex;
@@ -113,30 +114,66 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .contact-heading {
-      font-size: 1.8rem;
-  }
-
-  .contact-form {
-      padding: 1.5rem;
-  }
-
-  input,
-  textarea {
-      font-size: 0.9rem;
-  }
-
-  button {
-      font-size: 0.9rem;
-  }
-}
-
+/* Progress Bar Styles */
 .progress-bar {
   margin-top: 20px;
   width: 100%;
   max-width: 400px;
-  
 }
 
+/* Progress bar custom color */
+.progress-bar .Progress {
+  width: 100%;
+  background-color: white; /* White background for the progress bar */
+  border-radius: 5px; /* Rounded corners for the progress bar */
+  height: 10px; /* Adjust the height as per your needs */
+}
+
+.progress-bar .Progress > div {
+  background-color: #4caf50; /* Green progress indicator color */
+  border-radius: 5px;
+  height: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contact-heading {
+    font-size: 1.8rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+
+  .progress-bar .Progress {
+    height: 8px; /* Adjust progress bar height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-heading {
+    font-size: 1.6rem;
+  }
+
+  .contact-form {
+    padding: 1rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.85rem;
+  }
+
+  .progress-bar .Progress {
+    height: 6px; /* Smaller progress bar on very small screens */
+  }
+}
