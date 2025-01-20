@@ -103,7 +103,7 @@ export default function Page2() {
         <div className="skill-category">
           <h3>Frontend Development</h3>
           <ul>
-            <li className="skill-item">
+            <li className="skill-item" >
               <img src={htmlimage} alt="HTML5" className="skill-icon" />
               HTML5
             </li>
@@ -111,9 +111,9 @@ export default function Page2() {
               <img src={cssimage} alt="CSS3" className="skill-icon" />
               CSS3
             </li>
-            <li className="skill-item">
+            <li className="skill-item" >
               <img src={jsimage} alt="JavaScript" className="skill-icon" />
-              JavaScript (ES6+)
+              JavaScript
             </li>
             <li className="skill-item">
               <img src={tsimage} alt="TypeScript" className="skill-icon" />
@@ -183,11 +183,11 @@ export default function Page2() {
           <ul>
             <li className="skill-item">
               <img src={ec2} alt="AWS EC2" className="skill-icon" />
-              AWS EC2
+             EC2
             </li>
             <li className="skill-item">
               <img src={iam} alt="IAM User Management" className="skill-icon" />
-              IAM User Management
+              IAM
             </li>
           </ul>
         </div>
@@ -225,7 +225,7 @@ export default function Page2() {
             </li>
             <li className="skill-item">
               <img src={githubpages} alt="GitHub Pages" className="skill-icon" />
-              GitHub Pages
+              GitHub
             </li>
           </ul>
         </div>
