@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import image from "../assets/IMG_9470.png";
 import "../styles/Navbars.css";
-import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollToPlugin);
@@ -51,10 +50,11 @@ export default function NavigationBar() {
   return (
     <div className="navigation-bar">
       {/* Navigation Bar */}
-      
       <div className="navbar">
         <div className="logo">
-          <a href="/" className="logo-text">Portfolio</a>
+          <a href="/" className="logo-text">
+            Portfolio
+          </a>
         </div>
         <button className="menu-toggle" onClick={toggleMenu}>
           <span>{isMenuOpen ? "×" : "☰"}</span>
