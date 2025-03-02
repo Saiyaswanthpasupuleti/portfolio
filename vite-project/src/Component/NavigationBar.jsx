@@ -89,7 +89,7 @@ export default function NavigationBar() {
           </h1>
           <div className="hero-buttons">
             <a
-              href="https://drive.google.com/file/d/1eYWz5qYAxIRoJdA3EszzBdNJGbQoOLb4/view?usp=sharing"
+              href="https://drive.google.com/file/d/1lc9irt_60CB0xMo58byAts71f-Nk7xoY/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="resume-link"
